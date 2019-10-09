@@ -193,7 +193,7 @@ with open("../DATA/alt.txt") as alt_in:
 scores_by_student = {}
 sum_of_scores = 0.0
 
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\testscores.dat") as scores_in:
+with open(r"filepath") as scores_in:
 
     for line in scores_in:
         (name, score) = line.split(":")
@@ -226,7 +226,7 @@ print("\naverage score is  {:.2f}\n".format(average))
 
 shell_users = {}
 
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\passwd") as f:
+with open(r"filepath") as f:
     
     for line in f:
         (a,b,c,d,e,f, shell) = line.split(":")
@@ -250,12 +250,12 @@ for shell, count in shell_users.items():
 # In[ ]:
 
 
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\fruit1.txt", 'r') as file1:
-    with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\fruit2.txt", 'r') as file2:
+with open(r"filepath", 'r') as file1:
+    with open(r"filepath", 'r') as file2:
         same = set(file1).intersection(file2)
         print(same)
 
-#with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\common.txt", 'w') as file_out:
+#with open(r"filepath", 'w') as file_out:
    # for line in same:
     #    file_out.write(line)
 
@@ -408,7 +408,7 @@ for f in sys.argv[1:]:
 scores = {}
 total_of_scores = 0
 
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\testscores.dat") as f:
+with open(r"filepath") as f:
     for line in f:
         (name, score) = line.split(":")
         score = int(score)
@@ -444,16 +444,16 @@ b_lines = []
 
 try:
     
-    with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\alt.txt", 'r') as file1:
+    with open(r"filepath", 'r') as file1:
         for x in file1:
             if x.startswith("a"):
                 a_lines.append(x)
             elif x.startswith("b"):
                 b_lines.append(x)
-    with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\a.txt", 'w') as filea:
+    with open(r"filepath", 'w') as filea:
         filea.writelines(sorted(a_lines))
     
-    with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\b.txt", 'w') as fileb:
+    with open(r"filepath", 'w') as fileb:
         fileb.writelines(sorted(b_lines))
                     
         
@@ -467,7 +467,7 @@ except Exception as err:
 # In[ ]:
 
 
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\fruit.txt", 'r') as file_handle:
+with open(r"filepath", 'r') as file_handle:
             fruit_lines = file_handle.readlines()
 
 print("".join(sorted(fruit_lines)))
@@ -504,7 +504,7 @@ print("".join(sorted(fruit_lines, key=lambda s: (s[1].lower(), s[0].lower()))))
 # In[ ]:
 
 
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\presidents.txt", 'r') as file_handle:
+with open(r"filepath", 'r') as file_handle:
     for line in file_handle:
         filelines = line.split(":")
         firstname = filelines[1]
@@ -524,7 +524,7 @@ with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\presidents.txt", 'r') as f
 
 
 all_pres = []
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\presidents.txt", 'r') as PRES:
+with open(r"filepath", 'r') as PRES:
 
     for line in PRES:
         fields = line.rstrip('\n\r').split(":")
@@ -578,8 +578,8 @@ def mark_word(m):
     return '**' + m.group() + '**'
 
 #open og file, copy contents, add asterisks, write new one
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\parrot.txt" , "r") as p_in:
-    with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\bigwords.txt" , "w") as p_out:
+with open(r"filepath" , "r") as p_in:
+    with open(r"filepath" , "w") as p_out:
         for line in p_in:
             new_line = rx_longword.sub(mark_word, line)
             p_out.write(new_line)
@@ -594,7 +594,7 @@ import re
 
 rx_phonenumber = re.compile(r"\b\d{3}-\d{4}\b")
 
-with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\custinfo.dat" , "r") as p_in:
+with open(r"filepath" , "r") as p_in:
     for x in p_in:
         if rx_phonenumber.search(x):
             print(x, end='')
@@ -614,7 +614,7 @@ import re
 
 rx_unc = re.compile(r"[^\w']+")
 for file_name in sys.argv[1:]:
-    with open(r"C:\Users\dveras\Downloads\py3newhire\DATA\presidents.txt") as file_in:
+    with open(r"filepath") as file_in:
         found = {}
         for line in file_in:
             words = rx_unc.split(line)
@@ -635,7 +635,7 @@ for file_name in sys.argv[1:]:
 
 import xml.etree.ElementTree as ET
 
-words = open(r"C:\Users\dveras\Downloads\py3newhire\DATA\words.txt")
+words = open(r"filepath")
 xwords = [word.rstrip() for word in words if word.startswith('x')]
 words.close()
 
@@ -645,7 +645,7 @@ for word in xwords:
     ET.SubElement(root, 'word').text = word
 
 tree = ET.ElementTree(root)
-tree.write(r"C:\Users\dveras\Downloads\py3newhire\DATA\xwords.xml")
+tree.write(r"filepath")
 
 
 # Exercise 12-2: Use ElementTree parse presidents.xml. Loop and print out each president’s first and last names and their state of birth.
@@ -655,7 +655,7 @@ tree.write(r"C:\Users\dveras\Downloads\py3newhire\DATA\xwords.xml")
 
 try:
     from xml.etree import ElementTree as ET
-    presroot = ET.parse(r'C:\Users\dveras\Downloads\py3newhire\DATA\presidents.xml')
+    presroot = ET.parse(r'filepath')
     for pres in presroot.findall("president"):
         name = pres.findtext('name/last') + ', ' + pres.findtext('name/first')
         state = pres.findtext('birthstate')
@@ -675,7 +675,7 @@ Exercise 12-3: Rewrite xpresidents.py to parse presidents.json using the json mo
 
 try:
     import json
-    with open(r'C:\Users\dveras\Downloads\py3newhire\DATA\presidents.json') as PRES:
+    with open(r'filepath') as PRES:
         p = json.load(PRES)
         
         for pres in p['presidents']:
@@ -694,7 +694,7 @@ except Exception as err:
 
 try:
     import csv
-    with open(r'C:\Users\dveras\Downloads\py3newhire\DATA\presidents.csv') as PRES:
+    with open(r'filepath') as PRES:
         p = csv.reader(PRES)
         for row in p:
            print('{:25s} {:12s} {}'.format(row[1],row[2], row[-1]))
@@ -725,7 +725,7 @@ print(df * 3.6)
 
 import pandas as pd
 import numpy as np
-dp = pd.read_csv(r'C:\Users\dveras\Downloads\py3newhire\DATA\parasite_data.csv')
+dp = pd.read_csv(r'filepath')
 df = pd.DataFrame(dp)
 lowdiv = df[df['ShannonDiversity' ]>= 1.0]
 print(lowdiv)
